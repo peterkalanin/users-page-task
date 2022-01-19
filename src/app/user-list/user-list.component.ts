@@ -1,8 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 
 @Component({
-  templateUrl: './user-list.component.html',
-  styleUrls: ['./user-list.component.scss']
+  templateUrl: './user-list.component.html'
 })
 export class UserListComponent implements OnInit {
 
