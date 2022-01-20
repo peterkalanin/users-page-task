@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { map } from 'rxjs/operators';
+import { User } from '../models/user.model';
 import { UserService } from '../services/user.service';
 
 @Component({
@@ -11,10 +12,10 @@ export class UserListComponent implements OnInit {
   constructor(private userService: UserService) { }
 
   ngOnInit(): void {
-    this.userService.getUsers()
-      .pipe(map(resp => resp.data))
+    this.userService
+      .users$
       .subscribe((users) => {
-        this.users = users;
+        this.users = users as User[];
       })
   }
 
