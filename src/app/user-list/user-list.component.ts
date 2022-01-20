@@ -15,7 +15,6 @@ export class UserListComponent implements OnInit {
       .pipe(map(resp => resp.data))
       .subscribe((users) => {
         this.users = users;
-        console.log(this.users);
       })
   }
 

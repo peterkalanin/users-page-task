@@ -1,5 +1,7 @@
-<div class="user-initials">MP</div>
+<div class="user-initials">
+  {{ user?.first_name?.charAt(0) }}{{ user?.last_name?.charAt(0) }}
+</div>
 <div class="user-info">
-  <div>Meno Priezvisko</div>
-  <div>meno@test.sk</div>
+  <div>{{ user.first_name }} {{ user.last_name }}</div>
+  <div>{{ user.email }}</div>
 </div>
