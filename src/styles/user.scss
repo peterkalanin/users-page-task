@@ -15,7 +15,6 @@
     background-color: $primary;
     color: $primary-text;
     box-shadow: $shadow;
-    // width: 100%;
     padding: $user-item--padding;
     display: flex;
     border-radius: $user-item--border-radius;
@@ -49,6 +48,17 @@
     .user-info {
       font-size: $user-item--info--font-size;
     }
+  }
+
+  .user-item-skeleton {
+    flex-grow: 1;
+    min-height: $user-item--min-height;
+    min-width: 16rem;
+    animation: skeleton-animation 2s ease-in infinite;
+    color: $primary-text;
+    // box-shadow: $shadow;
+    padding: $user-item--padding;
+    border-radius: $user-item--border-radius;
   }
 }
 
@@ -88,5 +98,19 @@
 
   @include desktop {
     flex-direction: row;
+  }
+}
+
+@keyframes skeleton-animation {
+  0% {
+    background-color: $secondary;
+  }
+
+  50% {
+    background-color: lighten($secondary, 4%);
+  }
+
+  100% {
+    background-color: $secondary;
   }
 }

@@ -1,3 +1,13 @@
 <div class="user-list">
-  <app-user-item *ngFor="let user of users" [user]="user"></app-user-item>
+  <ng-container *ngIf="!loading; else skeletonLoadingTempalte">
+    <app-user-item *ngFor="let user of users" [user]="user"></app-user-item>
+  </ng-container>
+  <ng-template #skeletonLoadingTempalte>
+    <div class="user-item-skeleton"></div>
+    <div class="user-item-skeleton"></div>
+    <div class="user-item-skeleton"></div>
+    <div class="user-item-skeleton"></div>
+    <div class="user-item-skeleton"></div>
+    <div class="user-item-skeleton"></div>
+  </ng-template>
 </div>
