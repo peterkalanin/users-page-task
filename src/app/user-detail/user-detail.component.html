@@ -3,25 +3,13 @@
     <img [src]="user?.avatar" />
   </div>
   <div class="user-info">
-    <div>
-      <strong>ID:</strong>
-      <span>{{ user?.id }}</span>
-    </div>
+    <div><strong>ID:</strong> {{ user?.id }}</div>
 
-    <div>
-      <strong>Meno:</strong>
-      <span>{{ user?.first_name }}</span>
-    </div>
+    <div><strong>Meno:</strong> {{ user?.first_name }}</div>
 
-    <div>
-      <strong>Priezvisko:</strong>
-      <span>{{ user?.last_name }}</span>
-    </div>
+    <div><strong>Priezvisko:</strong> {{ user?.last_name }}</div>
 
-    <div>
-      <strong>Email:</strong>
-      <span>{{ user?.email }}</span>
-    </div>
+    <div><strong>Email:</strong> {{ user?.email }}</div>
   </div>
 </div>
 <a class="button" [routerLink]="['/user-list']">Naspäť na zoznam</a>
