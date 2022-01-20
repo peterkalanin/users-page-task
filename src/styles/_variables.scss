@@ -1,0 +1,30 @@
+$primary: rgb(37, 84, 212);
+$primary--lighten: lighten($primary, 8%);
+$primary--light: lighten($primary, 16%);
+$primary-text: rgb(248, 248, 248);
+$shadow: 0 1px 4px rgba(0, 0, 0, 0.25);
+$shadow--hover: 2px 3px 12px rgba(0, 0, 0, 0.25);
+
+$user-list--gap: 1rem;
+$user-list--desktop--gap: 4rem;
+
+$user-item--padding: 2rem;
+$user-item--border-radius: 1rem;
+$user-item--max-height: 220px;
+$user-item--max-width: 220px;
+$user-item--min-height: 12rem;
+
+$user-item--initials--font-size: 6rem;
+$user-item--info--font-size: 1.25rem;
+
+$user-detail--gap: 3rem;
+$user-detail--margin-bottom: 1rem;
+
+$user-avatar--max-size: 75vh;
+$user-avatar--border-radius: 2rem;
+
+$user-info--font-size: 1.25rem;
+$user-info--desktop--font-size: 2rem;
+$user-info--padding-bottom: 2rem;
+$user-info--gap: 0.5rem;
+$user-info--desktop--gap: 1rem;

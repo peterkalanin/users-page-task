@@ -1,52 +1,53 @@
 .user-list {
   display: flex;
   flex-direction: column;
-  gap: 1rem;
+  gap: $user-list--gap;
   flex-wrap: wrap;
-  // justify-content: space-between;
 
   @include desktop {
     flex-direction: row;
+    gap: $user-list--desktop--gap;
   }
 
   .user-item {
     flex-grow: 1;
-    min-height: 12rem;
-    background-color: rgb(164, 164, 164);
-    box-shadow: 0 1px 4px rgba(0, 0, 0, 0.25);
+    min-height: $user-item--min-height;
+    background-color: $primary;
+    color: $primary-text;
+    box-shadow: $shadow;
     // width: 100%;
-    padding: 2rem;
+    padding: $user-item--padding;
     display: flex;
-    border-radius: 1rem;
+    border-radius: $user-item--border-radius;
     flex-direction: column;
     justify-content: space-between;
     cursor: pointer;
 
     &:hover {
-      background-color: lighten(rgb(164, 164, 164), 4%);
-      box-shadow: 1px 2px 8px rgba(0, 0, 0, 0.25);
+      background-color: $primary--lighten;
+      box-shadow: $shadow--hover;
 
       &:nth-child(2n + 1) {
-        background-color: lighten(rgb(128, 128, 128), 4%);
+        background-color: $primary--light;
       }
     }
 
     &:nth-child(2n + 1) {
-      background-color: rgb(128, 128, 128);
+      background-color: $primary--lighten;
     }
 
     @include desktop {
-      max-width: 220px;
-      min-width: 220px;
+      max-width: $user-item--max-height;
+      min-width: $user-item--max-width;
     }
 
     .user-initials {
       // font-weight: bold;
-      font-size: 6rem;
+      font-size: $user-item--initials--font-size;
     }
 
     .user-info {
-      font-size: 1.25rem;
+      font-size: $user-item--info--font-size;
     }
   }
 }
@@ -54,17 +55,15 @@
 .user-detail {
   display: flex;
   flex-direction: column;
-  margin-bottom: 1rem;
-  gap: 3rem;
+  margin-bottom: $user-detail--margin-bottom;
+  gap: $user-detail--gap;
 
   .user-avatar {
     width: 100%;
     height: auto;
-    max-height: 75vh;
-    max-width: 75vh;
-    border-radius: 1rem;
-
-    border-radius: 2rem;
+    max-height: $user-avatar--max-size;
+    max-width: $user-avatar--max-size;
+    border-radius: $user-avatar--border-radius;
     overflow: hidden;
 
     img {
@@ -77,38 +76,17 @@
     display: flex;
     flex-direction: column;
     justify-content: flex-end;
-    font-size: 1.25rem;
+    font-size: $user-info--font-size;
+    gap: $user-info--gap;
 
     @include desktop {
-      padding-bottom: 2rem;
-      font-size: 2rem;
+      padding-bottom: $user-info--padding-bottom;
+      font-size: $user-info--desktop--font-size;
+      gap: $user-info--desktop--gap;
     }
   }
 
   @include desktop {
     flex-direction: row;
   }
-}
-
-.button {
-  display: inline-block;
-  border-width: 0;
-  padding: 1rem 1.5rem;
-  outline: none;
-  border-radius: 0.25rem;
-  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.25);
-  background: rgb(37, 84, 212);
-  color: rgb(216, 216, 216);
-  text-decoration: none;
-  font-size: 1.5rem;
-
-  &:hover {
-    box-shadow: 1px 2px 8px rgba(0, 0, 0, 0.25);
-    background: lighten(rgb(37, 84, 212), 4%);
-  }
-}
-
-.app {
-  max-width: 1200px;
-  margin: 0 auto;
 }
