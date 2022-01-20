@@ -10,9 +10,15 @@ export class UserService {
 
     constructor(private http: HttpClient) { }
 
-    getUsers(page: number = 1): Observable<UserList> {
+    getUsers(page?: string, delay?: string): Observable<UserList> {
+        // const url = `https://reqres.in/api/users${delay ? '?delay=' + delay : ''}`;
         const url = `https://reqres.in/api/users`;
-        const obs$ = this.http.get<UserList>(url).pipe(share());
+        const params: any = {};
+        if (page) { params.page = page }
+        if (delay) { params.delay = delay }
+        const obs$ = this.http.get<UserList>(url, {
+            params: params
+        }).pipe(share());
 
         return obs$;
     }
