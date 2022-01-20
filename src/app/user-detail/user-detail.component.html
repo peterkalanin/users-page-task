@@ -1,0 +1,26 @@
+<div class="user-detail">
+  <div class="user-avatar">
+    <img [src]="user.avatar" alt="avatar" />
+  </div>
+  <div class="user-info">
+    <div>
+      <strong>ID:</strong>
+      <span>{{ user.id }}</span>
+    </div>
+
+    <div>
+      <strong>Meno:</strong>
+      <span>{{ user.first_name }}</span>
+    </div>
+
+    <div>
+      <strong>Priezvisko:</strong>
+      <span>{{ user.last_name }}</span>
+    </div>
+
+    <div>
+      <strong>Email:</strong>
+      <span>{{ user.email }}</span>
+    </div>
+  </div>
+</div>
