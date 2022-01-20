@@ -82,6 +82,17 @@
     }
   }
 
+  .user-avatar-skeleton {
+    width: 100%;
+    min-height: 20rem;
+    height: auto;
+    max-height: $user-avatar--max-size;
+    max-width: $user-avatar--max-size;
+    border-radius: $user-avatar--border-radius;
+    overflow: hidden;
+    animation: skeleton-animation 2s ease-in infinite;
+  }
+
   .user-info {
     display: flex;
     flex-direction: column;
@@ -96,6 +107,14 @@
     }
   }
 
+  .user-info-item-skeleton {
+    animation: skeleton-animation 2s ease-in infinite;
+    min-height: 2rem;
+    width: 13rem;
+    max-width: 60vw;
+    border-radius: $user-avatar--border-radius;
+  }
+
   @include desktop {
     flex-direction: row;
   }
@@ -107,7 +126,7 @@
   }
 
   50% {
-    background-color: lighten($secondary, 4%);
+    background-color: lighten($secondary, 50%);
   }
 
   100% {

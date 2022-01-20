@@ -9,7 +9,7 @@ import { UserService } from '../services/user.service';
 })
 
 export class UserDetailComponent implements OnInit {
-    user!: User;
+    user?: User;
 
     constructor(private router: Router,
         private route: ActivatedRoute,
@@ -22,6 +22,7 @@ export class UserDetailComponent implements OnInit {
                 if (!users) { return }
 
                 this.user = users.find((u) => u.id == id) as User;
+                console.log(this.user);
             })
         });
     }

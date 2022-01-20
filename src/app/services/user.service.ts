@@ -20,6 +20,10 @@ export class UserService {
             params: params
         }).pipe(share());
 
+        obs$.subscribe((resp) => {
+            this._users$.next(resp.data);
+        })
+
         return obs$;
     }
 

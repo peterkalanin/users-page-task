@@ -1,15 +1,30 @@
 <div class="user-detail">
-  <div class="user-avatar">
+  <div *ngIf="user != undefined; else avatarSkeleton" class="user-avatar">
     <img [src]="user?.avatar" />
   </div>
   <div class="user-info">
-    <div><strong>ID:</strong> {{ user?.id }}</div>
+    <div *ngIf="user != undefined; else lineSkeleton">
+      <strong>ID:</strong> {{ user?.id }}
+    </div>
 
-    <div><strong>Meno:</strong> {{ user?.first_name }}</div>
+    <div *ngIf="user != undefined; else lineSkeleton">
+      <strong>Meno:</strong> {{ user?.first_name }}
+    </div>
 
-    <div><strong>Priezvisko:</strong> {{ user?.last_name }}</div>
+    <div *ngIf="user != undefined; else lineSkeleton">
+      <strong>Priezvisko:</strong> {{ user?.last_name }}
+    </div>
 
-    <div><strong>Email:</strong> {{ user?.email }}</div>
+    <div *ngIf="user != undefined; else lineSkeleton">
+      <strong>Email:</strong> {{ user?.email }}
+    </div>
   </div>
 </div>
 <a class="button" [routerLink]="['/user-list']">Naspäť na zoznam</a>
+
+<ng-template #avatarSkeleton>
+  <div class="user-avatar-skeleton"></div>
+</ng-template>
+<ng-template #lineSkeleton>
+  <div class="user-info-item-skeleton"></div>
+</ng-template>
