@@ -1,0 +1,5 @@
+<nav *ngIf="pageLimit > 1" class="pagination">
+  <button class="button" (click)="selectPrevious()">&lt;</button>
+  <button class="button" (click)="selectNext()">&gt;</button>
+  <span> Page: {{ page }} of {{ pageLimit }} </span>
+</nav>

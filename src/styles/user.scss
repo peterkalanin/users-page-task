@@ -1,0 +1,135 @@
+.user-list {
+  display: flex;
+  flex-direction: column;
+  gap: $user-list--gap;
+  flex-wrap: wrap;
+
+  @include desktop {
+    flex-direction: row;
+    gap: $user-list--desktop--gap;
+  }
+
+  .user-item {
+    flex-grow: 1;
+    min-height: $user-item--min-height;
+    background-color: $primary;
+    color: $primary-text;
+    box-shadow: $shadow;
+    padding: $user-item--padding;
+    display: flex;
+    border-radius: $user-item--border-radius;
+    flex-direction: column;
+    justify-content: space-between;
+    cursor: pointer;
+
+    &:hover {
+      background-color: $primary--lighten;
+      box-shadow: $shadow--hover;
+
+      &:nth-child(2n + 1) {
+        background-color: $primary--light;
+      }
+    }
+
+    &:nth-child(2n + 1) {
+      background-color: $primary--lighten;
+    }
+
+    @include desktop {
+      max-width: $user-item--max-height;
+      min-width: $user-item--max-width;
+    }
+
+    .user-initials {
+      // font-weight: bold;
+      font-size: $user-item--initials--font-size;
+    }
+
+    .user-info {
+      font-size: $user-item--info--font-size;
+    }
+  }
+
+  .user-item-skeleton {
+    flex-grow: 1;
+    min-height: $user-item--min-height;
+    min-width: 16rem;
+    animation: skeleton-animation 2s ease-in infinite;
+    color: $primary-text;
+    // box-shadow: $shadow;
+    padding: $user-item--padding;
+    border-radius: $user-item--border-radius;
+  }
+}
+
+.user-detail {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: $user-detail--margin-bottom;
+  gap: $user-detail--gap;
+
+  .user-avatar {
+    width: 100%;
+    height: auto;
+    max-height: $user-avatar--max-size;
+    max-width: $user-avatar--max-size;
+    border-radius: $user-avatar--border-radius;
+    overflow: hidden;
+
+    img {
+      height: 100%;
+      width: 100%;
+    }
+  }
+
+  .user-avatar-skeleton {
+    width: 100%;
+    min-height: 20rem;
+    height: auto;
+    max-height: $user-avatar--max-size;
+    max-width: $user-avatar--max-size;
+    border-radius: $user-avatar--border-radius;
+    overflow: hidden;
+    animation: skeleton-animation 2s ease-in infinite;
+  }
+
+  .user-info {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    font-size: $user-info--font-size;
+    gap: $user-info--gap;
+
+    @include desktop {
+      padding-bottom: $user-info--padding-bottom;
+      font-size: $user-info--desktop--font-size;
+      gap: $user-info--desktop--gap;
+    }
+  }
+
+  .user-info-item-skeleton {
+    animation: skeleton-animation 2s ease-in infinite;
+    min-height: 2rem;
+    width: 13rem;
+    max-width: 60vw;
+    border-radius: $user-avatar--border-radius;
+  }
+
+  @include desktop {
+    flex-direction: row;
+  }
+}
+
+@keyframes skeleton-animation {
+  0% {
+    background-color: $secondary;
+  }
+
+  50% {
+    background-color: lighten($secondary, 50%);
+  }
+
+  100% {
+    background-color: $secondary;
+  }
+}
