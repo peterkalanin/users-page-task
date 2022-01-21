@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { map } from 'rxjs/operators';
 import { User } from '../models/user.model';
 import { UserService } from '../services/user.service';
@@ -14,7 +14,7 @@ export class UserListComponent implements OnInit {
   delay!: number;
   pageLimit!: number;
 
-  constructor(private userService: UserService, private route: ActivatedRoute) {
+  constructor(private userService: UserService, private route: ActivatedRoute, private router: Router) {
     this.route.queryParams.subscribe((query) => {
       this.delay = +query.delay;
       this.page = +query.page || 1;
@@ -39,6 +39,17 @@ export class UserListComponent implements OnInit {
   onPageSelection(page: number) {
     this.page = page;
     this.getUsers();
+
+    this.router.navigate(
+      [],
+      {
+        relativeTo: this.route,
+        queryParams: {
+          page: this.page,
+          delay: this.delay
+        },
+        queryParamsHandling: 'merge'
+      });
   }
 
 }

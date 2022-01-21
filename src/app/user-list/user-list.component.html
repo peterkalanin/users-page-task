@@ -12,6 +12,7 @@
   </ng-template>
 </div>
 <app-pagination-component
+  *ngIf="!loading"
   [pageLimit]="pageLimit"
   (pageSelected)="onPageSelection($event)"
 ></app-pagination-component>
