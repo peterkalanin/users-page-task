@@ -10,13 +10,14 @@ import { UserService } from '../services/user.service';
 export class UserListComponent implements OnInit {
   users: any[] = [];
   loading: boolean = true;
-  page: string = '1';
-  delay!: string;
+  page!: number;
+  delay!: number;
+  pageLimit!: number;
 
   constructor(private userService: UserService, private route: ActivatedRoute) {
     this.route.queryParams.subscribe((query) => {
-      this.delay = query.delay;
-      this.page = query.page;
+      this.delay = +query.delay;
+      this.page = +query.page || 1;
     })
   }
 
@@ -28,11 +29,16 @@ export class UserListComponent implements OnInit {
     this.loading = true;
     this.userService
       .getUsers(this.page, this.delay)
-      .pipe(map(req => req.data))
-      .subscribe((users) => {
-        this.users = users as User[];
+      .subscribe((req) => {
+        this.users = req.data as User[];
+        this.pageLimit = req.total_pages;
         this.loading = false;
       });
+  }
+
+  onPageSelection(page: number) {
+    this.page = page;
+    this.getUsers();
   }
 
 }

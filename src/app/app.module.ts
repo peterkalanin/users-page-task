@@ -8,13 +8,15 @@ import { UserItemComponent } from './user-list/user-item/user-item.component';
 import { UserListComponent } from './user-list/user-list.component';
 import { UserService } from './services/user.service';
 import { UserDetailComponent } from './user-detail/user-detail.component';
+import { PaginationComponent } from './pagination/pagination.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     UserListComponent,
     UserItemComponent,
-    UserDetailComponent
+    UserDetailComponent,
+    PaginationComponent
   ],
   imports: [
     HttpClientModule,

@@ -10,7 +10,7 @@ export class UserService {
 
     constructor(private http: HttpClient) { }
 
-    getUsers(page?: string, delay?: string): Observable<UserList> {
+    getUsers(page?: number, delay?: number): Observable<UserList> {
         // const url = `https://reqres.in/api/users${delay ? '?delay=' + delay : ''}`;
         const url = `https://reqres.in/api/users`;
         const params: any = {};
