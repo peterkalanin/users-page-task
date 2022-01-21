@@ -20,7 +20,9 @@
     </div>
   </div>
 </div>
-<a class="button" [routerLink]="['/user-list']">Naspäť na zoznam</a>
+<a class="button" [routerLink]="['/user-list']" [queryParams]="pagination"
+  >Naspäť na zoznam</a
+>
 
 <ng-template #avatarSkeleton>
   <div class="user-avatar-skeleton"></div>

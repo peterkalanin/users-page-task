@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
+import { Pagination } from '../models/pagination.model';
 import { User } from '../models/user.model';
 import { UserService } from '../services/user.service';
 
@@ -10,6 +11,7 @@ import { UserService } from '../services/user.service';
 
 export class UserDetailComponent implements OnInit {
     user?: User;
+    pagination: Pagination = {};
 
     constructor(private router: Router,
         private route: ActivatedRoute,
@@ -22,7 +24,7 @@ export class UserDetailComponent implements OnInit {
                 if (!users) { return }
 
                 this.user = users.find((u) => u.id == id) as User;
-                console.log(this.user);
+                this.pagination = userService.pagination;
             })
         });
     }
